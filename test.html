@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>任務二</title>
+    <style>
+        html, body, div, span, applet, object, iframe,
+        h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+        a, abbr, acronym, address, big, cite, code,
+        del, dfn, em, img, ins, kbd, q, s, samp,
+        small, strike, strong, sub, sup, tt, var,
+        b, u, i, center,
+        dl, dt, dd, ol, ul, li,
+        fieldset, form, label, legend,
+        table, caption, tbody, tfoot, thead, tr, th, td,
+        article, aside, canvas, details, embed, 
+        figure, figcaption, footer, header, hgroup, 
+        menu, nav, output, ruby, section, summary,
+        time, mark, audio, video {
+            margin: 0;
+            padding: 0;
+            border: 0;
+            font-size: 100%;
+            font: inherit;
+            vertical-align: baseline;
+        }
+        /* HTML5 display-role reset for older browsers */
+        article, aside, details, figcaption, figure, 
+        footer, header, hgroup, menu, nav, section {
+            display: block;
+        }
+        body {
+            line-height: 1;
+        }
+        ol, ul {
+            list-style: none;
+        }
+        blockquote, q {
+            quotes: none;
+        }
+        blockquote:before, blockquote:after,
+        q:before, q:after {
+            content: '';
+            content: none;
+        }
+        table {
+            border-collapse: collapse;
+            border-spacing: 0;
+        }
+
+
+        .header{
+            justify-content: space-around;
+            align-items: center;
+            display: flex;
+            /* background-repeat: no-repeat;
+            background-image: url(https://raw.githubusercontent.com/hexschool/2022-web-layout-training/a0deba953fc5322a513e717e7c24b25fa3d946f8/2024%20web-camp/logo.svg);
+            background-position: 10% 28px; */
+        }
+        .logo{
+            width:90px;
+            height:40px;
+        }
+        .menu{
+            display: flex;
+            list-style: none;
+            margin-top: 32px;
+            margin-bottom: 32px;
+            /* margin-left: 318px; */
+        }
+        .menu li{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 16px;
+            height:32px;
+            margin: 0px 20px;
+            padding: 4px 8px;
+            line-height: 24px;
+        }
+        .hero{
+            display: flex;
+            justify-content: end;
+        }
+        .frame10{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .frame6{
+            color:#3b3b3b;
+            font-size: 40px;
+            padding-bottom: 60px;
+        }
+        .frame12{
+            color: #c1c1c1;
+            font-size: 12px;
+        }
+        .frame5{
+            font-size: 20px;
+            color: #5b5b5b;
+        }
+        .frame10 .img{
+            display: flex;
+            justify-content: flex-start;
+            width:100%;
+        }
+        .frame10 .img .logo{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: auto;
+            width:auto;
+            padding:9px;
+        }
+        .works .titlelg{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding-top: 120px;
+            padding-bottom: 80px;
+        }
+        .works .img .img1,.works .img .img2,.works .img .img3{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .works .img .img1{
+            background-image: url(https://github.com/hexschool/2022-web-layout-training/blob/main/2024%20web-camp/homepage-work1-bg.png?raw=true);
+            background-repeat: no-repeat;
+        }
+        .works .img .lg{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background:rgba(255, 255, 255, 0.1);
+            color: #ffffff;
+            padding: 80px 40px 40px 40px;
+            margin: 40px;
+            border-radius: 24px;
+        }
+        .works .img .information{
+            border-bottom: solid 1px gray;
+        }
+        .works .img .img1 .information .intro{
+            margin-bottom: 24px;
+            justify-content: left;
+        }
+        .works .img .information .intro .title{
+            font-size: 28px;
+            margin-bottom: 8px;
+        }
+        .works .img .lg .intro .content{
+        }
+        .works .img ul{
+            display: flex;
+            margin-top: 24px;
+            margin-bottom: 40px;
+        }
+        .works .img ul li{
+            background-color: #ffffff;
+            color: #3b3b3b;
+            padding:4px 12px;
+            border-radius: 16px;
+            margin-right: 16px;
+        }
+        .works .img .btn-lg{
+            display: flex;
+            justify-content: start;
+            align-items: center;
+            margin-top: 40px;
+        }
+        .works .img .btn-lg .btn{
+            background-color: #000000;
+            color: #ffffff;
+            padding: 16px 32px;
+        }
+        .works .img .img2{
+            background-image: url(https://github.com/hexschool/2022-web-layout-training/blob/main/2024%20web-camp/homepage-work2-lg.png?raw=true);
+            background-repeat: no-repeat;
+            height: 800px;
+            display: flex;
+            justify-content: left;
+            align-items: center;
+        }
+        .works .img .img2 .lg-background{
+            background-color: rgba(10, 16, 19, 0.5);
+            width:60%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .woks .img .img2 .lg{
+            width:40%;
+        }
+        .works .img .img3{
+            background-image: url(https://github.com/hexschool/2022-web-layout-training/blob/main/2024%20web-camp/homepage-work3-bg.png?raw=true);
+            background-repeat: no-repeat;
+        }
+        .works .img .img3 .lg-background{
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 176px 312px 100px 312px;
+            background-color: rgba(13, 12, 7, 0.5);
+        }
+        .services{
+            background-image: url(https://github.com/hexschool/2022-web-layout-training/blob/main/2024%20web-camp/homepage-services-bg.png?raw=true);
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding:120px 312px;
+        }
+        .services .titlelg{
+            font-size: 32px;
+            color: #3b3b3b;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            margin-bottom: 80px;
+        }
+        .services .service-background{
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            margin-bottom: 80px;
+        }
+        .services .service{
+            background-image: url(https://github.com/hexschool/2022-web-layout-training/blob/main/2024%20web-camp/service-item-bg.png?raw=true);
+            text-align: center;
+            padding: 80px 97px;
+            color: #ffffff;
+            font-size: 28px;
+            border-radius: 16px;
+        }
+        .services .service img{
+            margin-bottom: 24px;
+        }
+        .services .information{
+            font-size: 28px;
+            color:#3b3b3b;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+        .services .information .btn{
+            margin-top: 40px;
+            background-color: #000000;
+            color: #ffffff;
+            font-size: 20px;
+            padding: 16px 32px;
+            border-radius: 5px;
+            max-width: 20%;
+        }
+        .artictes{
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding:120px 312px;
+        }
+        .artictes .titlelg{
+            font-size: 32px;
+            color: #3b3b3b;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+        .artictes .information{
+            justify-content: center;
+            align-items: center;
+            margin-top: 80px;
+        }
+        .artictes .information .img{
+            display: flex;
+            justify-content: space-between;
+            font-size: 20px;
+        }
+        .artictes .information .img .img-background{
+            margin: 0px 10px;
+        }
+        .artictes .information .img img{
+            margin-bottom: 16px;
+        }
+        .artictes .information .img li{
+            font-size: 16px;
+            background-color: #f1f1f1;
+            border-radius: 16px;
+            color: #3b3b3b;
+        }
+        .artictes .information .img .footer{
+            margin-top: 16px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: #5b5b5b;
+            font-size: 16px;
+        }
+        .footer-background{
+            background-image: url(https://github.com/hexschool/2022-web-layout-training/blob/main/2024%20web-camp/footer-bg-lg.png?raw=true);
+            padding:80px 312px;
+            display: flex;
+            justify-content: space-between;
+        }
+        .footer-background .footer{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .footer-background .logo{
+            margin-bottom: 24px;
+        }
+        .footer-background .footer-information{
+            margin-bottom: 24px;
+        }
+        .footer-background .footer-email{
+            color: rgba(145, 145, 145, 1);
+        }
+        .footer-background .footer-social-media{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .footer-background .footer-social-media .form{
+            width:100%;
+            background-color: #000000;
+            color:#ffffff;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            border-radius: 24px;
+            margin-bottom: 24px;
+            padding:8px 24px;
+        }
+        .footer-background .footer-social-media .form img{
+            margin: 10px;
+        }
+        .footer-background .footer-social-media .ig{
+            width: 100%;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            margin-bottom: 24px;
+            padding:8px 24px;
+        }
+        .footer-background .footer-social-media .ig img{
+            margin: 9px;
+        }
+        .footer-background .footer-social-media .fb{
+            width: 100%;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            padding:8px 24px;
+        }
+        .footer-background .footer-social-media .fb img{
+            margin: 8px;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div id="logo" class="logo">
+            <img src="https://raw.githubusercontent.com/hexschool/2022-web-layout-training/a0deba953fc5322a513e717e7c24b25fa3d946f8/2024%20web-camp/logo.svg" alt="logo" />
+        </div>
+        <ul class="menu">
+            <li >首頁</li>
+            <li >作品集</li>
+            <li >服務項目</li>
+            <li >部落格</li>
+            <li >聯絡我</li>
+        </ul>
+        <div id="space" class="space"></div>
+    </div>
+    <div class="hero">
+        <div class="frame10">
+            <div class="frame6">
+                HI!我是Noel
+                <div class="frame12">
+                    <div class="frame5">
+                        <div class="frame7">
+                            <span>具有 10 年經驗的</span>
+                            <span>資深 UI 設計師</span>
+                            <span>兼</span>
+                            <span>前端工程師</span>
+                        </div>
+                        技術雙修並行，熱衷於優化使用者的網頁體驗
+                    </div>
+                    WEB DEVELOPMENT / BRANDING / UI / UX / APP DESIGN
+                </div>
+            </div>
+            <div class="img">
+                <div class="logo"><img src="https://raw.githubusercontent.com/hexschool/2022-web-layout-training/2f8d8c7a6133b448ecff5bf0a3d282b87b7c6a7e/2024%20web-camp/instagram.svg" alt=""></div>
+                <div class="logo"><img src="https://raw.githubusercontent.com/hexschool/2022-web-layout-training/2f8d8c7a6133b448ecff5bf0a3d282b87b7c6a7e/2024%20web-camp/facebook.svg" alt=""></div>
+                <div class="logo"><img src="https://raw.githubusercontent.com/hexschool/2022-web-layout-training/2f8d8c7a6133b448ecff5bf0a3d282b87b7c6a7e/2024%20web-camp/youtube.svg" alt=""></div>
+            </div>
+        </div>
+        <div><img src="https://github.com/hexschool/2022-web-layout-training/blob/main/2024%20web-camp/hero-lg.png?raw=true" alt=""></div>
+    </div>
+    <div class="works">
+        <div class="titlelg">
+            <img src="https://github.com/hexschool/2022-web-layout-training/blob/main/2024%20web-camp/title-deco-left-lg.png?raw=true" alt="">
+            作品介紹
+            <img src="https://github.com/hexschool/2022-web-layout-training/blob/main/2024%20web-camp/title-deco-right-lg.png?raw=true" alt="">
+        </div>
+        <div class="img">
+            <div class="img1">
+                <div><img src="https://github.com/hexschool/2022-web-layout-training/blob/main/2024%20web-camp/homepage-work1.png?raw=true" alt=""></div>
+                <div class="lg">
+                    <div class="information">
+                        <div class="intro">
+                            <div class="title">星際旅行訂票平台</div>
+                            <div class="content">悠遊宇宙的夢想，從這裡開始實現</div>
+                        </div>
+                        <ul>
+                            <li>網站設計</li>
+                            <li>響應式設計</li>
+                            <li>Bootstrap</li>
+                        </ul>
+                    </div>
+                    <div class="btn-lg">
+                        <div class="btn">
+                            完整介紹
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="img2">
+                <div class="lg-background">
+                    <div class="lg">
+                        <div class="information">
+                            <div class="intro">
+                                <div class="title">理財APP</div>
+                                <div class="content">連動帳戶與行動支付，讓AI提供您最好的理財建議</div>
+                            </div>
+                            <ul>
+                                <li>APP設計</li>
+                                <li>IOS</li>
+                                <li>React</li>
+                            </ul>
+                        </div>
+                        <div class="btn-lg">
+                            <div class="btn">
+                                完整介紹
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="img3">
+                <div class="lg-background">
+                    <div><img src="https://github.com/hexschool/2022-web-layout-training/blob/main/2024%20web-camp/homepage-work3.png?raw=true" alt=""></div>
+                    <div class="lg">
+                        <div class="information">
+                            <div class="intro">
+                                <div class="title">醫美整所官網</div>
+                                <div class="content">永保青春的秘密，從粹究開始</div>
+                            </div>
+                            <ul>
+                                <li>網站設計</li>
+                                <li>響應式設計</li>
+                                <li>WordPress</li>
+                            </ul>
+                        </div>
+                        <div class="btn-lg">
+                            <div class="btn">
+                                完整介紹
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="services">
+        <div class="titlelg">
+            <img src="https://github.com/hexschool/2022-web-layout-training/blob/main/2024%20web-camp/title-deco-left-lg.png?raw=true" alt="">
+            服務項目
+            <img src="https://github.com/hexschool/2022-web-layout-training/blob/main/2024%20web-camp/title-deco-right-lg.png?raw=true" alt="">
+        </div>
+        <div class="service-background">
+            <div class="service">
+                <img src="https://raw.githubusercontent.com/hexschool/2022-web-layout-training/2f8d8c7a6133b448ecff5bf0a3d282b87b7c6a7e/2024%20web-camp/service-item-visual.svg" />
+                </br>
+                平面設計
+            </div>
+            <div class="service">
+                <img src="https://raw.githubusercontent.com/hexschool/2022-web-layout-training/2f8d8c7a6133b448ecff5bf0a3d282b87b7c6a7e/2024%20web-camp/service-item-ui.svg" />
+                </br>
+                UI 設計
+            </div>
+            <div class="service">
+                <img src="https://raw.githubusercontent.com/hexschool/2022-web-layout-training/2f8d8c7a6133b448ecff5bf0a3d282b87b7c6a7e/2024%20web-camp/service-item-html%26css.svg" />
+                </br>
+                切版服務
+            </div>
+            <div class="service">
+                <img src="https://raw.githubusercontent.com/hexschool/2022-web-layout-training/2f8d8c7a6133b448ecff5bf0a3d282b87b7c6a7e/2024%20web-camp/service-item-front-end.svg" />
+                </br>
+                前端開發
+            </div>
+        </div>
+        <div>
+            <div class="information">
+                <div>
+                想要合作或瞭解更多?
+                </div>
+                <div class="btn">
+                    詳細內容與合作流程
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="artictes">
+        <div class="titlelg">
+            <img src="https://github.com/hexschool/2022-web-layout-training/blob/main/2024%20web-camp/title-deco-left-lg.png?raw=true" alt="">
+            精選文章
+            <img src="https://github.com/hexschool/2022-web-layout-training/blob/main/2024%20web-camp/title-deco-right-lg.png?raw=true" alt="">
+        </div>
+        <div class="information">
+            <div class="img">
+                <div class="img-background">
+                    <img src="https://github.com/hexschool/2022-web-layout-training/blob/main/2024%20web-camp/article-image1.png?raw=true" />
+                    Vision Pro 登場！Vision Pro UI/UX 設計重點大公開 (上)
+                    <div class="footer">
+                        <ul>
+                            <li>
+                                UI/UX新知
+                            </li>
+                        </ul>
+                        2024/02/10
+                    </div>
+                </div>
+                <div class="img-background">
+                    <img src="https://github.com/hexschool/2022-web-layout-training/blob/main/2024%20web-camp/article-image2.png?raw=true" />
+                    給設計師和工程師的 Figma-Dev Mode 開發模式使用指南 (下)
+                    <div class="footer">
+                        <ul>
+                            <li>
+                                UI/UX新知
+                            </li>
+                        </ul>
+                        2023/11/20
+                    </div>
+                </div>
+                <div class="img-background">
+                    <img src="https://github.com/hexschool/2022-web-layout-training/blob/main/2024%20web-camp/article-image3.png?raw=true" alt="" />
+                    給設計師和工程師的 Figma-Dev Mode 開發模式使用指南 (上)
+                    <div class="footer">
+                        <ul>
+                            <li>
+                                UI/UX新知
+                            </li>
+                        </ul>
+                        2023/10/18
+                    </div>
+                </div>
+            </div>
+            <div>
+
+            </div>
+        </div>
+    </div>
+    <div class="footer-background">
+        <div class="footer">
+            <div class="logo">
+                <img src="https://raw.githubusercontent.com/hexschool/2022-web-layout-training/a0deba953fc5322a513e717e7c24b25fa3d946f8/2024%20web-camp/logo.svg" alt="">
+            </div>
+            <div class="footer-information">
+                <div>若有數位產品設計和開發相關問題</div>
+                <div>歡迎填寫表單，或直接與我聯絡！</div>
+            </div>
+            <div class="footer-email">
+                service@hexschool.com
+            </div>
+        </div>
+        <div class="footer-social-media">
+            <div class="form">
+                <img src="https://raw.githubusercontent.com/hexschool/2022-web-layout-training/2f8d8c7a6133b448ecff5bf0a3d282b87b7c6a7e/2024%20web-camp/list.svg" alt="">
+                <div>
+                    填寫表單
+                </div>
+            </div>
+            <div class="ig">
+                <img src="https://raw.githubusercontent.com/hexschool/2022-web-layout-training/2f8d8c7a6133b448ecff5bf0a3d282b87b7c6a7e/2024%20web-camp/instagram.svg" alt="instagram">
+                <div>
+                    hexschool_demo
+                </div>
+            </div>
+            <div class="fb">
+                <img src="https://raw.githubusercontent.com/hexschool/2022-web-layout-training/2f8d8c7a6133b448ecff5bf0a3d282b87b7c6a7e/2024%20web-camp/facebook.svg" alt="facebook">
+                <div>
+                    hexschoolTW
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        let space=document.querySelector("#space")
+        let logo=document.querySelector("#logo")
+        let show=function(){
+            space.style.width=logo.clientWidth+"px"
+        }
+        window.addEventListener("load", show);
+        window.addEventListener("resize", show);
+    </script>
+</body>
+</html>
